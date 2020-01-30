@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>Leaflet Web Map</title>
+
+<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+
+<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+
+<style>
+    #title {
+        margin:30px;
+        text-align: center;
+        color: white;
+    }
+    
+    #map {
+        margin: 150px auto 30px auto;
+        width: 960px;
+        height:500px;
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    }
+    
+    #button {
+        float: left;
+        margin: 10px;
+        width: 200px;
+        height:25px;
+        background-color: #4CAF50; /* Green */
+        border: none;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+        cursor: pointer;
+    }
+    
+    #button-frame {
+        margin: auto auto 30px auto;
+        width: 960px;
+        height:50px;
+    }
+    
+    #header {
+        width:100%; 
+        height:100px; 
+        position:absolute; 
+        top:0;
+        background-color:#4CAF50;
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    }
+    
+    #text {
+        margin: auto;
+        width: 960px;
+        height:300px;
+    }
+    
+</style>
+
+</head>
+
+<body>
+    <div id="header">
+        <H1 id="title">North West Territories Communities' Forest Coverage Loss</H1>
+    </div>
+    <div id="map"></div>
+    <div id="button-frame">
+        <div><button id="button" onclick='setCenterBeh()'>Move to Behchokǫ̀</button></div>
+        <div><button id="button" onclick='setCenterYn()'>Move to Yellowknife</button></div>
+    </div>
+    <div id="text">
+        <p>GP487 A1</p>
+    </div>
+<script>
+
+    var map = L.map('map',{
+    center: [62.442222,-114.394722],
+    zoom: 12
+    });
+
+    L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+    
+    function setCenterBeh() {
+        map.panTo([62.8025,-116.046389])
+    }
+    
+    function setCenterYn() {
+        map.panTo([62.442222,-114.394722])
+    }
+
+</script>
+
+</body>
+
+</html>
